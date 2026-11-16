@@ -12,5 +12,7 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
-      - run: dotnet build HubSpot.NET.sln
+      # Build only the test project (and the library it references). The solution also has
+      # HubSpot.NET.Examples, which targets .NET Framework 4.6.1 and can't build on Linux.
+      - run: dotnet build HubSpot.NET.Tests
       - run: dotnet test HubSpot.NET.Tests --no-build
