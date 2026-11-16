@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <!-- Pin the Microsoft.NETCore.App runtime to a patched version (CVE-2021-34485) -->
+    <RuntimeFrameworkVersion>2.1.29</RuntimeFrameworkVersion>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
