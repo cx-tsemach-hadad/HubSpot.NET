@@ -10,8 +10,8 @@ namespace HubSpot.NET.Tests.Core
         {
             string signature = RequestSignature.Compute("app-secret", "{\"vid\":123}");
 
-            Assert.Equal(32, signature.Length);
-            Assert.Equal("38a48af1140c609a6a0028196b33fca7", signature);
+            Assert.Equal(64, signature.Length);
+            Assert.Equal("baba38450498515eae69e2f9982d10738b7814893ec500adba0f8b2ea879993a", signature);
         }
 
         [Fact]

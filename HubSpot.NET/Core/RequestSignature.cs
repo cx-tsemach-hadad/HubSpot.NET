@@ -15,9 +15,9 @@ namespace HubSpot.NET.Core
             if (appSecret == null) throw new ArgumentNullException(nameof(appSecret));
             if (body == null) throw new ArgumentNullException(nameof(body));
 
-            using (MD5 md5 = MD5.Create())
+            using (HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(appSecret)))
             {
-                byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(appSecret + body));
+                byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(body));
                 StringBuilder sb = new StringBuilder(hash.Length * 2);
                 foreach (byte b in hash)
                 {
